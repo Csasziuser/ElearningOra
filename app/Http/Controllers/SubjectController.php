@@ -16,5 +16,6 @@ class SubjectController extends Controller
             'subject_name' => 'required|string|max:255',
         ]);
         Subject::create($request->all());
+        return redirect()->back()->with('success', 'A tantárgy sikeresen elmentve!');
     }
 }
