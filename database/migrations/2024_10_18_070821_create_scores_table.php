@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->string('subject_name');
+            $table->string('e-mail');
+            $table->integer('score');
+            $table->unsignedBigInteger('subject_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('set null');
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('scores');
     }
 };
