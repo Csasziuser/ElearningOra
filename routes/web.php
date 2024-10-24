@@ -13,3 +13,5 @@ Route::post('/newsubject', [SubjectController::class, 'store'])->name('subject.s
 
 Route::get('/newquestion', [QuestionController::class, 'create'])->name('question.create');
 Route::post('/newquestion',[QuestionController::class, 'store'])->name('question.store');
+
+Route::get('/question', [QuestionController::class, 'index'])->name('questions.index');
