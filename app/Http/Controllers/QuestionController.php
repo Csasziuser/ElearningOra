@@ -14,7 +14,7 @@ class QuestionController extends Controller
 
    public function store(Request $request){
         $request->validate([
-            'subject_id' => 'required|integer|exist:subjects,id',
+            'subject_id' => 'required|integer|exists:subjects,id',
             'question_text' => 'required|string|max:255',
             'answer' => 'required|array|min:2',
             'answer.*.is_correct' => 'boolean|min:1',
