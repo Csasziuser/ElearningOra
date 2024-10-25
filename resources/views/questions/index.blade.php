@@ -41,6 +41,14 @@
                             @endforeach
                         </ul>
                     </td>
+                    <td>
+                        <a href="{{route('question.show',$question->id)}}">Módosítás</a>
+                        <form action="{{route('question.destroy',$question->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button>Törlés</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
