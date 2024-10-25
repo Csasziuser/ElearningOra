@@ -45,4 +45,9 @@ class QuestionController extends Controller
 
         return redirect()->back()->with('success', 'Az új kérdést létrehozta!😁');
    }
+
+   public function show(Question $question){
+     $subjects = Subject::all();
+     return view('questions.edit',compact('question','subjects'));
+   }
 }
