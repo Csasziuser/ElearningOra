@@ -50,4 +50,26 @@ class QuestionController extends Controller
      $subjects = Subject::all();
      return view('questions.edit',compact('question','subjects'));
    }
+
+   public function update(Request $request, $id){
+     $question = Question::findOrFail($id);
+     $question->update($request->only('question_text','subject_id'));
+
+     foreach($request->input('answer') as $answerData){
+          $answer = Answer::findOrFail($answerData['id']);
+          $answer->update([
+               'answer_text' => $answerData['answer_text'],
+               'is_correct' => isset($answerData['is_correct'])
+          ]);
+     }
+
+     return redirect()->route('questions.index')->with('success','A kérdés sikeresen módosítva');
+   }
+
+   public function destroy($id){
+     $question = Question::findOrFail($id);
+     $question->answers()->delete();
+     $question->delete();
+     return redirect()->route('questions.index')->with('success', 'A kérdés sikeresen törölve');
+   }
 }
