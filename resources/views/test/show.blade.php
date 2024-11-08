@@ -32,6 +32,7 @@
                     <p>{{ $question->question_text }}</p>
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
                     <ul>
+                        <!-- Kevin megoldása arra, hogy egy válasz ->radiobutton, több válasz -> checkbox -->
                         @php
                             $correctAnswerCount = $question->answers->where('is_correct', 1)->count();
                             $inputType = $correctAnswerCount === 1 ? 'radio' : 'checkbox';
