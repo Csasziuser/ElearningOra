@@ -9,7 +9,7 @@ class Score extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['email', 'subject_id', 'score'];
+    protected $fillable = ['e-mail', 'subject_id', 'score'];
 
     public function subject(){
         return $this->belongsTo(Subject::class);

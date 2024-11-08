@@ -11,12 +11,12 @@
     @if ($errors->any())
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li><p>{{$error}}</p></li>
             @endforeach
         </ul>
     @endif
     @if (@session('success'))
-        <p>{{ session('success') }}</p>
+        <p>{{session('success')}}</p>
     @endif
 
     <h1>{{ $subject->subject_name }} teszt</h1>
