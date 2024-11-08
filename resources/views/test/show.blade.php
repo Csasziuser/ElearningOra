@@ -19,7 +19,7 @@
 
     <h1>{{$subject->subject_name}} teszt</h1>
 
-    <form action="" method="POST">
+    <form action="{{route('score.store',$subject->subject_name)}}" method="POST">
         @csrf
         <label for="email">E-mail: </label>
         <input type="email" name="email" id="email"><br><br>

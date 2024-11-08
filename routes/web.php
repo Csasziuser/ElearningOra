@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ScoreController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,4 +23,5 @@ Route::delete('/question/{question}',[QuestionController::class,'destroy'])->nam
 
 Route::get('/tests', [TestController::class, 'index'])->name('tests.index');
 Route::get('/tests/{test}',[TestController::class,'show'])->name('test.show');
+Route::post('/tests/{test}',[ScoreController::class,'store'])->name('score.store');
 
